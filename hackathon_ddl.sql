@@ -8,7 +8,7 @@
 	4. service dimension
 	5. product dimension
 	6. campaign dimension
-
+*/
 
 /* fact tables */
 /* campaign contact history */
@@ -26,12 +26,10 @@ create table campaign.contact_history (
 create table campaign.response (
 	row_id integer primary key
 	, contact_history_id integer
-	, channel_type varchar(50)
-	, deliver_flag integer
-	, unsub_flag integer
-	, optout_flag integer
-	, hardbounce_flag integer
-	, NPS integer
+	, response_time date
+	, response_medium varchar(50)
+	, response_type varchar(50)
+	, score integer
 );
 
 /* dimension tables */
@@ -89,4 +87,15 @@ create table campaign.dim_campaign (
 	, channel varchar(50) -- TM/SMS/DM/EDM
 	, marketing_team varchar(100)
 	, frequency varchar(50)
+	, treatment varchar(50)
+	, offer_id integer
+	, control_flag integer
+	, campaign_segment varchar(100)
+);
+
+/* offer dim */
+create table campaign.offer (
+	row_id integer primary key
+	, offer_name varchar(100)
+	, offer_value integer
 );

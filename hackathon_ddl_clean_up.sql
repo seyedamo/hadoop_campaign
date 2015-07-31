@@ -4,3 +4,4 @@ drop table campaign.customer;
 drop table campaign.service;
 drop table campaign.product;
 drop table campaign.dim_campaign;
+drop table campaign.offer;
